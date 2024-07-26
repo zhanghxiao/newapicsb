@@ -1,9 +1,8 @@
 FROM pengzhile/new-api:latest
 
 # 安装 curl 和其他必要的工具
-RUN apt-get update && apt-get install -y --no-install-recommends curl && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN apk update && apk add --no-cache curl && \
+    rm -rf /var/cache/apk/*
 
 # 安装 cloudflared
 RUN curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o cloudflared && \
