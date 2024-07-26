@@ -1,7 +1,7 @@
 FROM pengzhile/new-api:latest
 
-# 安装 curl 和其他必要的工具
-RUN apk update && apk add --no-cache curl && \
+# 安装 curl、zsh 和其他必要的工具
+RUN apk update && apk add --no-cache curl zsh && \
     rm -rf /var/cache/apk/*
 
 # 安装 cloudflared
