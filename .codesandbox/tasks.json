@@ -3,12 +3,12 @@
   "tasks": {
     "start-new-api": {
       "name": "Start New API",
-      "command": "docker run --name new-api -d --restart always -p 3000:3000 -e SQL_DSN=\"$SQL_DSN\" pengzhile/new-api:latest",
+      "command": "/bin/sh -c 'docker rm -f new-api 2>/dev/null || true && docker run --name new-api -d --restart always -p 3000:3000 -e SQL_DSN=\"$SQL_DSN\" pengzhile/new-api:latest'",
       "runAtStart": true
     },
     "start-cloudflared": {
       "name": "Start Cloudflared",
-      "command": "cloudflared tunnel run --token $CLOUDFLARE_TOKEN",
+      "command": "/bin/sh -c 'cloudflared tunnel run --token $CLOUDFLARE_TOKEN'",
       "runAtStart": true
     }
   }
